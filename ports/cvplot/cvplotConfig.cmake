@@ -1,0 +1,14 @@
+# Headers.
+find_path(CVPLOT_INCLUDE NAMES "cvplot/cvplot.h" PATHS "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/include" NO_DEFAULT_PATH)
+
+# Libs.
+find_library(CVPLOT_LIB_DEBUG NAMES "cvplot" PATHS "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/debug/lib" NO_DEFAULT_PATH)
+find_library(CVPLOT_LIB_RELEASE NAMES "cvplot" PATHS "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET}/lib" NO_DEFAULT_PATH)
+
+# Target.
+add_library(cvplot::core UNKNOWN IMPORTED)
+
+# Properties.
+set_target_properties(cvplot::core PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${CVPLOT_INCLUDE})
+set_target_properties(cvplot::core PROPERTIES IMPORTED_LOCATION_DEBUG ${CVPLOT_LIB_DEBUG})
+set_target_properties(cvplot::core PROPERTIES IMPORTED_LOCATION_RELEASE ${CVPLOT_LIB_RELEASE})

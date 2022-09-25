@@ -1,0 +1,7 @@
+{
+	"name": "cvplot",
+	"version": "0.0.4",
+	"description": "Graph plots, drawing, layout and windows in OpenCV",
+	"homepage": "https://github.com/leovandriel/cvplot",
+	"dependencies": [{"name": "opencv", "host": true}]
+}
